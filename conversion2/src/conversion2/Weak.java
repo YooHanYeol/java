@@ -8,9 +8,10 @@ import java.io.BufferedReader;
 
 public class Weak {
 
-    public static void Manifest_Debug(String path) {
+    public static int Manifest_Debug(String path) {
         // 디버그 모드 확인 (AndroidManifest.xml 파일에서 확인 가능)
         // 디버그 모드면 외부에서 임의의 코드를 주입 가능, 개발시에만 사용해야함
+    	int num = 0;
         try {
             String check = "android:debuggable=\"true\"";
 
@@ -29,11 +30,16 @@ public class Weak {
         } catch (IOException e) {
             System.out.println(e);
         }
+        if(num>0)
+        	return 1;
+        else
+        	return 0;
     }
 
-    public static void Manifest_Backup(String path) {
+    public static int Manifest_Backup(String path) {
         // 백업 허용 확인 (AndroidManifest.xml 파일에서 확인 가능)
         // 악의적 사용자가 adb를 사용하여 앱의 개인 데이터를 자신의 PC에 가져올 수 있음.
+    	int num = 0;
         try {
             String check = "android:allowBackup=\"true\"";
 
@@ -45,6 +51,7 @@ public class Weak {
                 if (line.contains(check))
                     // 라인 중 android:allowBackup="true" 포함한 라인 찾음
                     System.out.println("adb를 통해 백업 허용 중 -> 취약");
+                	num++;
             }
             bufr.close();
         } catch (FileNotFoundException e) {
@@ -52,11 +59,16 @@ public class Weak {
         } catch (IOException e) {
             System.out.println(e);
         }
+		if(num>0)
+			return 1;
+		else
+			return 0;
     }
 
-    public static void Manifest_Location(String path) {
+    public static int Manifest_Location(String path) {
         // 사용자의 위치 정보 접근 확인 (AndroidManifest.xml 파일에서 확인 가능)
         // Wi-Fi와 같은 네트워크 위치 소스를 통해 위치 얻어짐. 기본 권한으로 설정되어 있으면 위험함.
+    	int num = 0;
         try {
             String check = "android.permission.ACCESS_COARSE_LOCATION";
 
@@ -68,6 +80,7 @@ public class Weak {
                 if (line.contains(check))
                     // 라인 중 android.permission.ACCESS_COARSE_LOCATION 포함한 라인 찾음
                     System.out.println("위치 정보 접근 허용 -> 취약");
+                	num++;
             }
             bufr.close();
         } catch (FileNotFoundException e) {
@@ -75,11 +88,16 @@ public class Weak {
         } catch (IOException e) {
             System.out.println(e);
         }
+		if(num>0)
+			return 1;
+		else
+			return 0;
     }
     
-    public static void Manifest_Phone(String path) {
+    public static int Manifest_Phone(String path) {
         // Phone 권한 확인 (AndroidManifest.xml 파일에서 확인 가능)
         // 장치의 전화번호, 네트워크정보, 진행중인 통화의 상태 읽어오기, 사용자의 통화 기록 읽기 가능
+    	int num = 0;
         try {
             String check = "android.permission.READ_CALL_LOG";
             String check2 = "android.permission.READ_PHONE_STATE";
@@ -92,9 +110,11 @@ public class Weak {
                 if (line.contains(check))
                     // 라인 중 android.permission.READ_CALL_LOG 포함한 라인 찾음
                     System.out.println("사용자의 통화 기록 읽기 허용 -> 취약");
+                	num++;
                 if (line.contains(check2))
                 	// 라인 중 android.permission.READ_PHONE_STATE 포함된 라인 찾음
                 	System.out.println("장치의 전화 번호, 네트워크 정보, 진행중인 통화의 상태 읽어오기 허용 -> 취약");
+                	num++;
             }
             bufr.close();
         } catch (FileNotFoundException e) {
@@ -102,11 +122,16 @@ public class Weak {
         } catch (IOException e) {
             System.out.println(e);
         }
+        if(num>0)
+        	return 1;
+        else
+        	return 0;
     }
     
-    public static void Manifest_Activity(String path) {
+    public static int Manifest_Activity(String path) {
         // 액티비티 컴포넌트 확인 (AndroidManifest.xml 파일에서 확인 가능)
         // 다른 에플리케이션의 Activity를 실행 할 수 있음.
+    	int num = 0;
     	try {
     		int i = 0;
     		int count = 0;
@@ -127,6 +152,7 @@ public class Weak {
             if (i > 0)
             {
             System.out.println("노출된 Activity 갯수 : "+count+" -> 취약");
+            num++;
             }
             bufr.close();
         } catch (FileNotFoundException e) {
@@ -134,6 +160,10 @@ public class Weak {
         } catch (IOException e) {
             System.out.println(e);
         }
+    	if(num>0)
+    		return 1;
+    	else
+    		return 0;
     }
 
     public static void main(String[] args) {
