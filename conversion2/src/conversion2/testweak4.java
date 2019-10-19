@@ -28,7 +28,8 @@ public class testweak4 {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 로그 확인',' 민감정보 로그 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 로그 확인',' 민감정보 로그 취약 ') "); 
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 로그 확인2',' 로그에서 확인되지 않은 출력 확인 ') "); 
         return 1;
     }
         else return 0;
