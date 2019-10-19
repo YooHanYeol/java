@@ -33,7 +33,8 @@ public class Weak2 {
             num++;
             if(num>0){
         		OpenTable ot = new OpenTable();
-        		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 루팅탐지',' 노출된 루팅 갯수 : "+count+"') ");     	
+        		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 루팅탐지',' 노출된 루팅 갯수 : "+count+"') ");
+        		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 루팅탐지2',' Root권한 획득 가능') ");
         }
             }
             bufr.close();
@@ -73,7 +74,8 @@ public class Weak2 {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Su 권한',' 시스템 명령 실행중 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Su 권한',' 시스템 명령 실행중 ') "); 
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Su 권한2',' 응용 프로그램이 시스템 명령 실행 가능 ') "); 
         return 1;
     }
         else
