@@ -28,7 +28,8 @@ public class testweak2 {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Base64 인코딩',' Base64 인코딩 사용 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Base64 인코딩',' Base64 인코딩 사용 ') ");
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Base64 인코딩2',' 안전하지 않은 인코딩 사용') ");
         return 1;
     }
         else return 0;
@@ -57,7 +58,8 @@ public class testweak2 {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Base64 디코드',' Base64 디코드 사용 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Base64 디코드',' Base64 디코드 사용 ') "); 
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Base64 디코드2',' 안전하지 않은 디코드 사용 ') ");
         return 1;
     }
         else return 0;
