@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 
 public class Weak2 {
 
-    public static int PostLogin_Rooting(String path) {
+	public static int PostLogin_Rooting(String path2) {
         // 루팅탐지 (PostLogin.java 파일에서 확인 가능)
         // 사용자가 Root권한을 획득하여 시스템을 사용가능
     	int num = 0;
@@ -17,7 +17,7 @@ public class Weak2 {
         	int count = 0;
             String check = "/system/app/Superuser.apk";
 
-            File f = new File(path);
+            File f = new File(path2);
             FileReader fr = new FileReader(String.valueOf(f));
             BufferedReader bufr = new BufferedReader(fr);
             String line = "";
@@ -31,6 +31,10 @@ public class Weak2 {
             {
             System.out.println("노출된 루팅 갯수 : "+count+" -> 취약");
             num++;
+            if(num>0){
+        		OpenTable ot = new OpenTable();
+        		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 루팅탐지',' 노출된 루팅 갯수 : "+count+"') ");     	
+        }
             }
             bufr.close();
         } catch (FileNotFoundException e) {
@@ -38,20 +42,20 @@ public class Weak2 {
         } catch (IOException e) {
             System.out.println(e);
         }
-        if(num>0)
+        if(num>0) 	
         	return 1;
         else
         	return 0;
     }
 
-    public static int PostLogin_Su(String path) {
+    public static int PostLogin_Su(String path2) {
         // Su 권한 확인 (PostLogin.java 파일에서 확인 가능)
         // 응용 프로그램이 시스템 명령을 실행할 수 있습니다.
     	int num = 0;
         try {
         	String check = "/system/xbin/which\", \"su";
 
-            File f = new File(path);
+            File f = new File(path2);
             FileReader fr = new FileReader(String.valueOf(f));
             BufferedReader bufr = new BufferedReader(fr);
             String line = "";
@@ -67,16 +71,19 @@ public class Weak2 {
         } catch (IOException e) {
             System.out.println(e);
         }
-        if(num>0)
-        	return 1;
+        if(num>0){
+    		OpenTable ot = new OpenTable();
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' Su 권한',' 시스템 명령 실행중 ') ");     	
+        return 1;
+    }
         else
         	return 0;
     }
     
     public static void main(String[] args) {
-        String path = "C:\\apktool\\InsecureBankv2-dex2jar.jar.src\\com\\android\\insecurebankv2\\PostLogin.java";
-        PostLogin_Rooting(path);
-        PostLogin_Su(path);
+        String path2 = "C:\\DaJaVa\\InsecureBankv2-classes\\com\\android\\insecurebankv2\\PostLogin.java";
+        PostLogin_Rooting(path2);
+        PostLogin_Su(path2);
 
     }
 }
