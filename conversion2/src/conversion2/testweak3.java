@@ -27,7 +27,8 @@ public class testweak3 {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' SMS 체크',' SmsManager 사용 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' SMS 체크',' SmsManager 사용 ') "); 
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' SMS 체크2',' 사용자 몰래 sms,mms 전송 허가 ') "); 
         return 1;
     }
         else return 0;
@@ -57,7 +58,8 @@ public class testweak3 {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' catch의 일반 예외',' catch 예약 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' catch의 일반 예외',' catch 예약 취약 ') ");
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' catch의 일반 예외2',' 구체적이지 않은 예외 포착 ') ");  
         return 1;
     }
         else return 0;
