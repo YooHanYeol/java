@@ -30,7 +30,8 @@ public class testweak {
         }
         if(num>0) {
         		OpenTable ot = new OpenTable();
-        		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 중', ' 수출 업체',' 수출 업체 취약 ') ");     	
+        		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 중', ' 수출 업체',' 수출 업체 취약 ') ");
+        		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 중', ' 수출 업체2',' 다른 응용 프로그램이 사용 가능한 공급자 발견 ') ");
             return 1;
         }
         else
@@ -39,7 +40,7 @@ public class testweak {
 
     public static int Manifest_Receiver(String path) {
         // 수출 수신기
-        // 내 보낸 수신기를 찾았습니다. 다른 응용 프로그램에서 사용할 수 있습니다.
+        // 내보낸 수신기를 찾았습니다. 다른 응용 프로그램에서 사용할 수 있습니다.
         int num = 0;
         try {
             String check = " <receiver";
@@ -61,7 +62,8 @@ public class testweak {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 중', ' 수출 수신기',' 수신기 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 중', ' 수출 수신기',' 수신기 취약 ') ");
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 중', ' 수출 수신기2',' 다른 응용 프로그램이 사용 가능한 수신기 발견 ') ");
         return 1;
     }
         else
@@ -91,7 +93,8 @@ public class testweak {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 계정 가져오기 권한',' 계정 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 계정 가져오기 권한',' 계정 취약 ') "); 
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 계정 가져오기 권한2',' 전화로 알려진 계정 목록 취득 가능 ') ");
         return 1;
     }
         else
@@ -121,7 +124,8 @@ public class testweak {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 인터넷 허가',' 인터넷 허가 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 인터넷 허가',' 인터넷 허가 취약 ') ");  
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 인터넷 허가2',' 앱이 네트워크 소켓 및 사용자 지정 네트워크 프로토콜 사용 가능 ') ");
         return 1;
     }
         else
@@ -151,7 +155,8 @@ public class testweak {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 연락처 읽기 권한',' 연락처 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 연락처 읽기 권한',' 연락처 취약 ') "); 
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 연락처 읽기 권한2',' 앱이 전화에 저장된 연락처 읽기 허용 ') ");
         return 1;
     }
         else
@@ -180,7 +185,8 @@ public class testweak {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 외부 저장소 읽기',' 외부 저장소 읽기 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 외부 저장소 읽기',' 외부 저장소 읽기 취약 ') ");
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 외부 저장소 읽기2',' 앱이 SD카드 내용 읽기 허용') ");
         return 1;
     }
         else
@@ -209,7 +215,8 @@ public class testweak {
         }
         if(num>0){
     		OpenTable ot = new OpenTable();
-    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 외부 저장소 쓰기',' 외부 저장소 쓰기 취약 ') ");     	
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 외부 저장소 쓰기',' 외부 저장소 쓰기 취약 ') ");
+    		ot.update("INSERT INTO result2 (Grade,Name,Content)" + "VALUES(' 상', ' 외부 저장소 쓰기2',' 앱이 SD카드 내용 쓰기 허용 ') ");
         return 1;
     }
         else
